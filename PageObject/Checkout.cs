@@ -19,9 +19,6 @@ namespace ProjetoDesafioUsandoXUnit.PageObject
         private By inserirCodigoPostal;
         private By valorTotal;
 
-
-
-
         public Checkout(IWebDriver navegador)
         {
             this.navegador = navegador;
@@ -44,6 +41,7 @@ namespace ProjetoDesafioUsandoXUnit.PageObject
             navegador.FindElement(inserirCodigoPostal).SendKeys(codigoPostal);
 
         }
+
         public void EnviarFormularioCheckout()
         {
             navegador.FindElement(btnContinuarCheckout).Click();
