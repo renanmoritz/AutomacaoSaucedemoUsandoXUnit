@@ -1,0 +1,218 @@
+{
+	"info": {
+		"_postman_id": "ab526c42-7ff2-4eb2-8287-01e2b48768b7",
+		"name": "Usuarios",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Cadastrar Usuario",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const resposta = pm.response.json();\r",
+							"pm.globals.set(\"idUsuario\", resposta._id);\r",
+							"\r",
+							"pm.test(\"Usuário Cadastrado com Sucesso\", function() {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nome\": \"Teste DTAT\",\r\n  \"email\": \"testedtat@teste.com.br\",\r\n  \"password\": \"123\",\r\n  \"administrador\": \"true\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "serverest.dev/usuarios",
+					"host": [
+						"serverest",
+						"dev"
+					],
+					"path": [
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar Usuario por ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Encontrar Usuário\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar se Dados do Usuário estão corretos\", function () {\r",
+							"    pm.response.to.have.body({ \"nome\": \"Teste DTAT\", \"email\": \"testedtat@teste.com.br\", \"password\": \"123\", \"administrador\": \"true\", \"_id\": pm.globals.get(\"idUsuario\") });\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "serverest.dev/usuarios/{{idUsuario}}",
+					"host": [
+						"serverest",
+						"dev"
+					],
+					"path": [
+						"usuarios",
+						"{{idUsuario}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar Usuario",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Usuário Alterado com Sucesso\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nome\": \"Teste DTAT Editado\",\r\n  \"email\": \"testedtat@teste.com.br\",\r\n  \"password\": \"TESTE\",\r\n  \"administrador\": \"true\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "serverest.dev/usuarios/{{idUsuario}}",
+					"host": [
+						"serverest",
+						"dev"
+					],
+					"path": [
+						"usuarios",
+						"{{idUsuario}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Usuario",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Teste DTAT\");\r",
+							"    pm.expect(pm.response.text()).to.include(\"testedtat@teste.com.br\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar se Dados do Usuário estão corretos\", function () {\r",
+							"    pm.response.to.have.body({ \"quantidade\": 1, \"usuarios\": [ { \"nome\": \"Teste DTAT Editado\", \"email\": \"testedtat@teste.com.br\", \"password\": \"TESTE\", \"administrador\": \"true\", \"_id\": pm.globals.get(\"idUsuario\") } ] });\r",
+							"});\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "serverest.dev/usuarios?nome=Teste DTAT&email=testedtat@teste.com.br",
+					"host": [
+						"serverest",
+						"dev"
+					],
+					"path": [
+						"usuarios"
+					],
+					"query": [
+						{
+							"key": "nome",
+							"value": "Teste DTAT"
+						},
+						{
+							"key": "email",
+							"value": "testedtat@teste.com.br"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Excluir Usuario",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Registro excluído com sucesso\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Registro excluído com sucesso\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "serverest.dev/usuarios/{{idUsuario}}",
+					"host": [
+						"serverest",
+						"dev"
+					],
+					"path": [
+						"usuarios",
+						"{{idUsuario}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,838 @@
+{
+	"info": {
+		"_postman_id": "53ceb89c-08ff-4cc3-9f94-3220d12b37c3",
+		"name": "Carrinhos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Exclusões",
+			"item": [
+				{
+					"name": "Excluir Carrinho UsuProd 1",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authorizationUsuarioProduto1}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "serverest.dev/carrinhos/cancelar-compra",
+							"host": [
+								"serverest",
+								"dev"
+							],
+							"path": [
+								"carrinhos",
+								"cancelar-compra"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir Carrinho UsuProd 2",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authorizationUsuarioProduto2}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "serverest.dev/carrinhos/cancelar-compra",
+							"host": [
+								"serverest",
+								"dev"
+							],
+							"path": [
+								"carrinhos",
+								"cancelar-compra"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir Carrinho UsuProd 3",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authorizationUsuarioProduto3}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "serverest.dev/carrinhos/cancelar-compra",
+							"host": [
+								"serverest",
+								"dev"
+							],
+							"path": [
+								"carrinhos",
+								"cancelar-compra"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir Produto DTAT 1",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://serverest.dev/produtos/{{idProdutoDTAT1}}",
+							"protocol": "https",
+							"host": [
+								"serverest",
+								"dev"
+							],
+							"path": [
+								"produtos",
+								"{{idProdutoDTAT1}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir Produto DTAT 2",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://serverest.dev/produtos/{{idProdutoDTAT2}}",
+							"protocol": "https",
+							"host": [
+								"serverest",
+								"dev"
+							],
+							"path": [
+								"produtos",
+								"{{idProdutoDTAT2}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir Produto DTAT 3",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://serverest.dev/produtos/{{idProdutoDTAT3}}",
+							"protocol": "https",
+							"host": [
+								"serverest",
+								"dev"
+							],
+							"path": [
+								"produtos",
+								"{{idProdutoDTAT3}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cadastrar Usuario Produto 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Usuário Produo 1 Cadastrado com Sucesso\", function() {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"const resposta = pm.response.json();\r",
+							"pm.environment.set(\"idUsuarioProduto1\", resposta._id);\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nome\": \"Usuario DTAT Produto 1\",\r\n  \"email\": \"usuarioproduto1@teste.com.br\",\r\n  \"password\": \"123\",\r\n  \"administrador\": \"true\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "serverest.dev/usuarios",
+					"host": [
+						"serverest",
+						"dev"
+					],
+					"path": [
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastrar Usuario Produto 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Usuário Produo 2 Cadastrado com Sucesso\", function() {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"const resposta = pm.response.json();\r",
+							"pm.environment.set(\"idUsuarioProduto2\", resposta._id);\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nome\": \"Usuario DTAT Produto 2\",\r\n  \"email\": \"usuarioproduto2@teste.com.br\",\r\n  \"password\": \"123\",\r\n  \"administrador\": \"true\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "serverest.dev/usuarios",
+					"host": [
+						"serverest",
+						"dev"
+					],
+					"path": [
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastrar Usuario Produto 3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Usuário Produo 3 Cadastrado com Sucesso\", function() {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"const resposta = pm.response.json();\r",
+							"pm.environment.set(\"idUsuarioProduto3\", resposta._id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nome\": \"Usuario DTAT Produto 3\",\r\n  \"email\": \"usuarioproduto3@teste.com.br\",\r\n  \"password\": \"123\",\r\n  \"administrador\": \"true\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "serverest.dev/usuarios",
+					"host": [
+						"serverest",
+						"dev"
+					],
+					"path": [
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar Usuario por ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Encontrar Usuário\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar se Dados do Usuário estão corretos\", function () {\r",
+							"    pm.response.to.have.body({ \"nome\": \"Teste DTAT\", \"email\": \"testedtat@teste.com.br\", \"password\": \"123\", \"administrador\": \"true\", \"_id\": pm.globals.get(\"idUsuario\") });\r",
+							"});\r",
+							"\r",
+							"const resposta = pm.response.json();\r",
+							"pm.environment.set(\"emailUsuarioProduto\", resposta.email);\r",
+							"pm.environment.set(\"senhaUsuarioProduto\", resposta.senha);\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "serverest.dev/usuarios/{{idUsuario}}",
+					"host": [
+						"serverest",
+						"dev"
+					],
+					"path": [
+						"usuarios",
+						"{{idUsuario}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Efetuar Login UsuProd 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const resposta = pm.response.json();\r",
+							"pm.environment.set(\"authorizationUsuarioProduto1\", resposta.authorization);\r",
+							"\r",
+							"pm.test(\"Login realizado com Sucesso\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"usuarioproduto1@teste.com.br\",\r\n  \"password\": \"123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://serverest.dev/login",
+					"protocol": "https",
+					"host": [
+						"serverest",
+						"dev"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Efetuar Login UsuProd 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const resposta = pm.response.json();\r",
+							"pm.environment.set(\"authorizationUsuarioProduto2\", resposta.authorization);\r",
+							"\r",
+							"pm.test(\"Login realizado com Sucesso\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"usuarioproduto2@teste.com.br\",\r\n  \"password\": \"123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://serverest.dev/login",
+					"protocol": "https",
+					"host": [
+						"serverest",
+						"dev"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Efetuar Login UsuProd 3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const resposta = pm.response.json();\r",
+							"pm.environment.set(\"authorizationUsuarioProduto3\", resposta.authorization);\r",
+							"\r",
+							"pm.test(\"Login realizado com Sucesso\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"usuarioproduto3@teste.com.br\",\r\n  \"password\": \"123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://serverest.dev/login",
+					"protocol": "https",
+					"host": [
+						"serverest",
+						"dev"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastrar Produto DTAT 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const resposta = pm.response.json();\r",
+							"pm.environment.set(\"idProdutoDTAT1\", resposta._id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{authorizationUsuarioProduto1}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nome\": \"Produto DTAT 1\",\r\n  \"preco\": 500,\r\n  \"descricao\": \"Produto Teste DTAT 1\",\r\n  \"quantidade\": 50\r\n}\r\n\r\n\r\n\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "serverest.dev/produtos",
+					"host": [
+						"serverest",
+						"dev"
+					],
+					"path": [
+						"produtos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastrar Produto DTAT 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const resposta = pm.response.json();\r",
+							"pm.environment.set(\"idProdutoDTAT2\", resposta._id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{authorizationUsuarioProduto2}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nome\": \"Produto DTAT 2\",\r\n  \"preco\": 450,\r\n  \"descricao\": \"Produto Teste DTAT 2    \",\r\n  \"quantidade\": 45\r\n}\r\n\r\n\r\n\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "serverest.dev/produtos",
+					"host": [
+						"serverest",
+						"dev"
+					],
+					"path": [
+						"produtos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastrar Produto DTAT 3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const resposta = pm.response.json();\r",
+							"pm.environment.set(\"idProdutoDTAT3\", resposta._id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{authorizationUsuarioProduto3}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nome\": \"Produto DTAT 3\",\r\n  \"preco\": 400,\r\n  \"descricao\": \"Produto Teste DTAT 3\",\r\n  \"quantidade\": 40\r\n}\r\n\r\n\r\n\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "serverest.dev/produtos",
+					"host": [
+						"serverest",
+						"dev"
+					],
+					"path": [
+						"produtos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastrar Carrinho UsuProd 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Carrinho Usuário 1 Cadastrado com Sucesso\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.environment.get(\"idProdutoDTAT1\");\r",
+							"pm.environment.get(\"idProdutoDTAT2\");\r",
+							"pm.environment.get(\"idProdutoDTAT3\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{authorizationUsuarioProduto1}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"produtos\": [\r\n    {\r\n      \"idProduto\": \"{{idProdutoDTAT1}}\",\r\n      \"quantidade\": 5 \r\n    },\r\n    {\r\n      \"idProduto\": \"{{idProdutoDTAT2}}\",\r\n      \"quantidade\": 6\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "serverest.dev/carrinhos",
+					"host": [
+						"serverest",
+						"dev"
+					],
+					"path": [
+						"carrinhos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastrar Carrinho UsuProd 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Carrinho Usuário 2 Cadastrado com Sucesso\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.environment.get(\"idProdutoDTAT1\");\r",
+							"pm.environment.get(\"idProdutoDTAT2\");\r",
+							"pm.environment.get(\"idProdutoDTAT3\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{authorizationUsuarioProduto2}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"produtos\": [\r\n    {\r\n      \"idProduto\": \"{{idProdutoDTAT2}}\",\r\n      \"quantidade\": 5 \r\n    },\r\n    {\r\n      \"idProduto\": \"{{idProdutoDTAT3}}\",\r\n      \"quantidade\": 6\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "serverest.dev/carrinhos",
+					"host": [
+						"serverest",
+						"dev"
+					],
+					"path": [
+						"carrinhos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastrar Carrinho UsuProd 3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Carrinho Usuário 3 Cadastrado com Sucesso\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.environment.get(\"idProdutoDTAT1\");\r",
+							"pm.environment.get(\"idProdutoDTAT2\");\r",
+							"pm.environment.get(\"idProdutoDTAT3\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{authorizationUsuarioProduto3}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"produtos\": [\r\n    {\r\n      \"idProduto\": \"{{idProdutoDTAT1}}\",\r\n      \"quantidade\": 5 \r\n    },\r\n    {\r\n      \"idProduto\": \"{{idProdutoDTAT3}}\",\r\n      \"quantidade\": 6\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "serverest.dev/carrinhos",
+					"host": [
+						"serverest",
+						"dev"
+					],
+					"path": [
+						"carrinhos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Carrinhos Cadastrados",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Validar se existem 3 ou mais carrinhos com quantidade total igual ou maior que 5\", function () { \r",
+							"\r",
+							"var jsonData = pm.response.json();\r",
+							"var qtd = 0; \r",
+							"var obj;\r",
+							"\r",
+							"for (var i = 0; i < jsonData.carrinhos.length; i++) { \r",
+							"obj = jsonData.carrinhos[i].quantidadeTotal; \r",
+							"\r",
+							"if (obj >= 5){\r",
+							"\tqtd++;\r",
+							"}\r",
+							"\r",
+							"}\r",
+							"\r",
+							"pm.expect(qtd).to.greaterThan(2); \r",
+							"\r",
+							"}); \r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "serverest.dev/carrinhos",
+					"host": [
+						"serverest",
+						"dev"
+					],
+					"path": [
+						"carrinhos"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "apikey"
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
